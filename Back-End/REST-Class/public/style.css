@@ -1,0 +1,59 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: maroon;
+}
+
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.post-card {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.username {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 6px;
+  font-style: italic;
+}
+
+.content {
+  color: #555;
+  line-height: 1.5;
+}
+
+
+
+//create button
+.create-btn {
+    background-color: #7b2cbf; /* violet */
+    color: #ffffff;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.create-btn:hover {
+    background-color: #5a189a;
+}
+
+.create-btn:active {
+    transform: scale(0.97);
+}

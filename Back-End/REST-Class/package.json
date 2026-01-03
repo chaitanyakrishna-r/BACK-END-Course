@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.10",
-    "express.js": "^1.0.0"
+    "express.js": "^1.0.0",
+    "method-override": "^3.0.0",
+    "uuid": "^13.0.0"
   }
 }
