@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h2>DeTails of users </h2>
+        <p>Username: <%= data.username%></p>
+        <p>Id : <%= data.id %></p>
+        <p>Email : <%=data.email %></p>
+    </div>
+    <form action="/users/<%=data.id%>?_method=PATCH" method="post">
+        <label for="">NEW user name</label>
+        <input type="text" placeholder="Enter New Username" name="username" value="<%=data.username %>">
+        <input type="password" placeholder="Enter the password" name="password">
+        <button>Update</button>
+    </form>
+
+</body>
+</html>

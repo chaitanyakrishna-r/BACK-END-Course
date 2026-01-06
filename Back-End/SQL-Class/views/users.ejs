@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Users</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .user-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .user-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 16px;
+      width: 280px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    }
+
+    .user-header {
+      border-bottom: 1px solid #eee;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+    }
+
+    .user-header h3 {
+      margin: 0;
+      color: #333;
+    }
+
+    .user-details p {
+      margin: 6px 0;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>List of All Users</h1>
+  <form action="/users/new" method="get">
+    <button>ADD NEW User</button>
+  </form>
+
+  <div class="user-container">
+    
+    <% for (let [index, user] of users.entries()) { %>
+      
+      <div class="user-card">
+
+        <!-- Top section -->
+        <div class="user-header">
+          <h3><%= index + 1 %>. <%= user.username %></h3>
+        </div>
+
+        <!-- Details section -->
+        <div class="user-details">
+          <p><span class="label">ID:</span> <%= user.id %></p>
+          <p><span class="label">Email:</span> <%= user.email %></p>
+          <a href="/users/<%=user.id%>/edit">Edit</a>
+          <form action="/users/<%=user.id%>?_method=DELETE" method="post">
+            <button>DELETE</button>
+          </form>
+        </div>
+
+
+      </div>
+
+    <% } %>
+  </div>
+
+</body>
+</html>

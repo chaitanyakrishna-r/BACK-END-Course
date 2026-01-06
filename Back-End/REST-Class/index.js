@@ -5,6 +5,8 @@ const port = 8080;
 const methodOverride = require('method-override');
 
 
+
+
 //middleware
 app.use(express.static(path.join(__dirname,"/public")));
 app.use(express.urlencoded({extended:true}));
@@ -96,6 +98,9 @@ app.delete("/posts/:id",(req,res)=>{
     posts = posts.filter((p)=> id !== p.id);
     res.redirect("/posts");
 })
+
+
+
 
 
 //server
