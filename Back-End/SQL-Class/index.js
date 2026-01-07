@@ -24,7 +24,7 @@ const connection  = mysql.createConnection({
     host:'localhost',
     user:'root',
     database:'delta_app',
-    password:
+    password:""
 });
 
 
@@ -65,7 +65,7 @@ app.get("/users",(req,res)=>{
     }
 });
 
-//update
+//edit
 app.get("/users/:id/edit",(req,res)=>{
     let {id} = req.params;
     let q = "SELECT *FROM user WHERE id = ?";
@@ -83,7 +83,7 @@ app.get("/users/:id/edit",(req,res)=>{
 
     
 })
-
+//update
 app.patch("/users/:id",(req,res)=>{
     let{id} = req.params;
     let {username, password} = req.body;
@@ -93,7 +93,6 @@ app.patch("/users/:id",(req,res)=>{
         connection.query(q,[id],(err, result)=>{
             if(err) throw err;
             let ogpassword = result[0].password;
-            console.log(password,ogpassword);
             if(ogpassword !== password){
                 res.redirect(`/users/${id}/edit`);
             }else{
