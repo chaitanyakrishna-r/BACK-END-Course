@@ -11,11 +11,11 @@ export const PI = 3.14;
 //     g:g ,
 //     PI:PI
 // }
-// module.exports ={
-//     sum:sum,
-//     mul:mul,
-//     g:g ,
-//     PI:PI
-// }
+module.exports ={
+    sum:sum,
+    mul:mul,
+    g:g ,
+    PI:PI
+}
 
 // module.exports = obj;
