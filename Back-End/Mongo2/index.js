@@ -51,23 +51,23 @@ app.get("/chats/new", (req, res) => {
 });
 
 
-//creat route
-// app.post("/chats", async(req, res) => {
-//     try{
-//         let { from, to, message } = req.body;
-//         const chat =  new  Chat({
-//         from: from,
-//         to: to,
-//         message: message,
-//         create_at: Date.now(),
-//   });
-//      await chat.save()
+creat route
+app.post("/chats", async(req, res) => {
+    try{
+        let { from, to, message } = req.body;
+        const chat =  new  Chat({
+        from: from,
+        to: to,
+        message: message,
+        create_at: Date.now(),
+  });
+     await chat.save()
    
-//     res.redirect("/chats");
-//   } catch(err){
-//     console.log(err);
-//   }
-// });
+    res.redirect("/chats");
+  } catch(err){
+    console.log(err);
+  }
+});
 
 app.listen(port, () => {
   console.log(`listening to the port ${port}`);
