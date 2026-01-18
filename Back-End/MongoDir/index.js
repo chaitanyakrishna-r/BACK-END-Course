@@ -38,8 +38,14 @@ const User = mongoose.model("User", userSchema);
 //     console.log(data);
 // });
 
-User.updateOne({name: "adam"},{age: 40}).then(res =>console.log(res));
+// User.updateOne({name: "adam"},{age: 40}).then(res =>console.log(res));
 
-User.findOne({name: "adam"}).then((data) =>{
-     console.log(data);
-     });
+// User.findOne({name: "adam"}).then((data) =>{
+//      console.log(data);
+//      });
+
+User.findByIdAndDelete('69650be8bd27901532bb10dd').then(res => console.log(res));
+
+// User.findByIddeleteMany({age: {$lt : 20}}).then(res => console.log(res));
+
+// User.find({}).then(res => console.log(res));
