@@ -69,8 +69,6 @@ app.post("/chats", async(req, res) => {
   }
 });
 
-//detele 
-
 
 
 app.listen(port, () => {
