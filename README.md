@@ -13,3 +13,4 @@ To build strong backend skills and create real-world projects for interviews and
 
 ## Status
 Learning in progress ✨
+CURD operation in data base
