@@ -7,11 +7,11 @@ app.listen(port, ()=>{
     console.log(`app is listening on ${port}`);
 })
 
-// app.use((req,res)=>{
-//     console.log("request received");
-//     let code = "<h1>Fruits</h1><ul><li>apple</li><li>orange</li></ul>"
-//     res.send(code);
-// }) 
+app.use((req,res)=>{
+    console.log("request received");
+    let code = "<h1>Fruits</h1><ul><li>apple</li><li>orange</li></ul>"
+    res.send(code);
+}) 
 
 
 let code = "<h1>Fruits</h1><ul><li>apple</li><li>orange</li></ul>"
