@@ -34,7 +34,7 @@ app.get("/:username/:id",(req,res)=>{
     res.send(`user name is ${username} and ${id}`);
 })
 
-app.get("/search",(req,res)=>{
-    let {q} = req.query;
-    res.send(`search results for query: ${q}`);
-})
+// app.get("/search",(req,res)=>{
+//     let {q} = req.query;
+//     res.send(`search results for query: ${q}`);
+// })
