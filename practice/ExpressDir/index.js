@@ -11,13 +11,13 @@ app.listen(port, ()=>{
     console.log(`app is listening on port ${port}`);
 });
 
-app.use((req, res)=>{
-    // console.log(req);
-    let code = "<h1>This is Header </h1> <ul><li>fruits</li><li>vegetables</li></ul>"
+// app.use((req, res)=>{
+//     // console.log(req);
+//     let code = "<h1>This is Header </h1> <ul><li>fruits</li><li>vegetables</li></ul>"
     
-    console.log("request received");
-    res.send(code);
-}) 
+//     console.log("request received");
+//     res.send(code);
+// }) 
 
 app.get("/",(req, res)=>{  
     res.send("This is Home section, Hello")
