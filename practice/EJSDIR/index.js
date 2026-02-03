@@ -31,6 +31,6 @@ app.get("/ig/:username",(req, res)=>{
 })
 
 
-// app.get("/",(req, res)=>{
-//     res.render("home.ejs");
-// })
+app.get("/",(req, res)=>{
+    res.render("home.ejs");
+})
