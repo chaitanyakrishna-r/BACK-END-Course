@@ -28,8 +28,8 @@ const connection  = mysql.createConnection({
 });
 
 
-const id = uuidv4();
-console.log(id);
+// const id = uuidv4();
+// console.log(id);
 
 
 app.get('/',(req, res)=>{
