@@ -49,7 +49,7 @@ app.get('/',(req, res)=>{
    
 })
 
-//show userses
+//show users
 
 app.get("/users",(req,res)=>{
     let q = "SELECT id, username, email FROM user"
