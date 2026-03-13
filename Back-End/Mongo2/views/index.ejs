@@ -19,7 +19,11 @@
           <h3>From: <%= chat.from %></h3>
           <h3>To: <%= chat.to %></h3>
           <p class="message"><%= chat.message %></p>
-          <p class="date"><%= chat.create_at %></p>
+          <p class="date"><%= chat.create_at.toString().split(" ")[4] %> <br></p>
+          <p class="date"><%= chat.create_at.toString().split(" ").slice(0, 4).join(" ") %> <br></p>
+          <form action="/chats/<%= chat.id %>/edit" method="get">
+            <button>Edit</button>
+          </form>
         </div>
         <% } %>
       </div>

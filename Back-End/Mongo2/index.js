@@ -4,6 +4,7 @@ const path = require("path");
 const app = express();
 const port = 8080;
 const Chat = require("./models/chat.js");
+const methodOverride = require("method-override");
 
 //mongoose
 
@@ -25,6 +26,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(methodOverride("_method"));
 
 //routes
 
@@ -51,7 +53,7 @@ app.get("/chats/new", (req, res) => {
 });
 
 
-// creat route
+// create route
 app.post("/chats", async(req, res) => {
     try{
         let { from, to, message } = req.body;
@@ -69,6 +71,28 @@ app.post("/chats", async(req, res) => {
   }
 });
 
+
+//edit route
+app.get("/chats/:id/edit",async(req,res) =>{
+  let {id} = req.params;
+  const editChat = await Chat.findById(id);
+  res.render("edit.ejs",{editChat});
+})
+
+//update route
+app.put("/chats/:id", async(req,res)=>{
+  let {id} = req.params;
+  let {newMessage} = req.body;
+ 
+   const updatedChat = await Chat.findByIdAndUpdate(
+    id,
+    {message : newMessage},
+    {runValidators: true, new : true},
+  );
+  // console.log(updatedChat);
+  res.redirect("/chats")
+
+})
 
 
 app.listen(port, () => {
