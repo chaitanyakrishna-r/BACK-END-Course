@@ -12,6 +12,9 @@
       <form action="chats/new" method="get">
         <button>Send New Message</button>
       </form>
+      <form action="/chats?_method=DELETE" method="post">
+              <button>Delete All</button>
+        </form>
       <hr>
       <div>
         <% for (let chat of chats) { %>
@@ -21,9 +24,14 @@
           <p class="message"><%= chat.message %></p>
           <p class="date"><%= chat.create_at.toString().split(" ")[4] %> <br></p>
           <p class="date"><%= chat.create_at.toString().split(" ").slice(0, 4).join(" ") %> <br></p>
-          <form action="/chats/<%= chat.id %>/edit" method="get">
-            <button>Edit</button>
-          </form>
+          <div>
+            <form action="/chats/<%= chat.id %>/edit" method="get">
+              <button>Edit</button>
+            </form>
+            <form action="/chats/<%= chat.id %>?_method=DELETE" method="post">
+              <button>Delete</button>
+            </form>
+          </div>
         </div>
         <% } %>
       </div>

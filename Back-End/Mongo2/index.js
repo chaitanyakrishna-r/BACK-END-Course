@@ -95,6 +95,21 @@ app.put("/chats/:id", async(req,res)=>{
 })
 
 
+//destory route
+app.delete("/chats/:id", async(req,res)=>{
+  const {id} = req.params;
+  const deleteChat = await Chat.findByIdAndDelete(id);
+  console.log(deleteChat);
+  res.redirect("/chats");
+})
+
+//destory all route
+app.delete("/chats", async(req,res)=>{
+  await Chat.deleteMany({});
+  res.redirect("/chats");
+  
+})
+
 app.listen(port, () => {
   console.log(`listening to the port ${port}`);
 });
