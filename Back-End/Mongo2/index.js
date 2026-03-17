@@ -5,6 +5,7 @@ const app = express();
 const port = 8080;
 const Chat = require("./models/chat.js");
 const methodOverride = require("method-override");
+const ejsMate = require("ejs-mate");
 
 //mongoose
 
