@@ -34,7 +34,7 @@ app.use((req,res,next)=>{
 const checkToken = ("/api",(req, res, next)=>{
     console.log(req.query.token);
     const token = req.query.token;
-    if(token === "giveaccess"){
+    if(token === "givenaccess"){
         next();
     }
     res.send("ACCESS DENIED!");
