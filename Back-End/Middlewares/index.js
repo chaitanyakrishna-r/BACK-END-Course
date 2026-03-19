@@ -10,12 +10,12 @@ const port = 8080;
     
 // })
 
-// app.use((req, res,next)=>{
-//     // const{query} = req.query;
-//     console.log("I am middleware 2");
-//     next();
+app.use((req, res,next)=>{
+    // const{query} = req.query;
+    console.log("I am middleware 2");
+    next();
     
-// })
+})
 
 //utility middleware - logger function
 
@@ -34,7 +34,7 @@ app.use((req,res,next)=>{
 const checkToken = ("/api",(req, res, next)=>{
     console.log(req.query.token);
     const token = req.query.token;
-    if(token === "givenaccess"){
+    if(token === "giveaccess"){
         next();
     }
     res.send("ACCESS DENIED!");
