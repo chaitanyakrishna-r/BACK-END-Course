@@ -32,6 +32,12 @@ const custormerSchema = new Schema({
 const Customer = mongoose.model("Customer",custormerSchema);
 const Order = mongoose.model("Order",orderSchema);
 
+//function for find all
+const findCustomer = async()=>{
+    let result = await Customer.find({}).populate('order');
+    console.log(result[0]);
+}
+findCustomer();
 
 //function for add new customers
 const addCustomer = async()=>{
@@ -50,7 +56,12 @@ const addCustomer = async()=>{
     const result = await cust1.save();
 
     console.log(result);
-}
+    console.log(order1);
+
+    //to get all data from db
+//     const results =  await Customer.find({});
+//     console.log(results); 
+ }
 
 
 //function for add new orders
@@ -66,4 +77,13 @@ async function addOrder(){
 }
 
 // addOrder();
-addCustomer();
+// addCustomer();
+
+// deletion handling
+//middleware
+Schema.post('findByIdandDelete', async (customer)=>{
+    if(customer.order.length){
+        let res = Order.deleteMany( {_id: {$in: customer.order}});
+        console.log(res);
+    }
+})
