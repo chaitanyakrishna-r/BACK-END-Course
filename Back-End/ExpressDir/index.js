@@ -1,15 +1,22 @@
 const express = require("express");
 const app = express();
-const session = require("express-session");
-let port = 3000;
-const flash = require('connect-flash');
 const path = require('path');
-// const cookieParser = require('cookie-parser');
+const session = require("express-session");
+const flash = require('connect-flash');
+const cookieParser = require('cookie-parser');
+cpmst
+let port = 3000;
+
+
+
+
 // // app.use((req,res)=>{
 // //     console.log("request received");
 // //     let code = "<h1>Fruits</h1><ul><li>apple</li><li>orange</li></ul>"
 // //     res.send(code);
 // // }) 
+
+
 // app.use(cookieParser("secretcode"));
 
 // app.get("/getsignedcookie",(req,res)=>{
@@ -36,6 +43,8 @@ const path = require('path');
 //     const {name = "anonymous"} = req.cookies;
 //     res.send(`hi ${name}! how are you `)
 // })
+
+
 
 // let code = "<h1>Fruits</h1><ul><li>apple</li><li>orange</li></ul>"
 // app.get("/fruits",(req,res)=>{
