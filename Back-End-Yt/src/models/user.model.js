@@ -28,15 +28,16 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: [true, "password is required"], //custome error message
-      minLength: 8,
+     
     },
     refreshToken: {
-      Type: String,
+      type: String,
     },
     avatar: {
       type: String, //cloudinary url
+      required: true,
     },
-    coverimage: {
+    coverImage: {
       type: String, //cloudary image url
     },
     dateOfBirth: {
@@ -54,9 +55,9 @@ const userSchema = new mongoose.Schema(
 
 //middleware
 userSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) return next();
-  this.password =await  bcrypt.hash(this.password, 10);
-  next();
+  if (!this.isModified("password")) return ;
+  this.password = await  bcrypt.hash(this.password, 10);
+  
 });
 
 //custom methos
@@ -80,6 +81,7 @@ userSchema.methods.generateAccessToken = function () {
 };
 
 userSchema.methods.generateRefreshToken = function () {
+  
   return jwt.sign(
     {
       _id: this._id,
@@ -90,6 +92,6 @@ userSchema.methods.generateRefreshToken = function () {
     }
   );
 };
-s;
+
 
 export default mongoose.model("User", userSchema);
