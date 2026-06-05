@@ -7,15 +7,12 @@ const subscriptionSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
     },
-    subscribers: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-      },
-    ],
+    subscriber: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   { timestamps: true }
 );
 
-
-export const Subscription = mongoose.model("Subscription",subscriptionSchema);
+export const Subscription = mongoose.model("Subscription", subscriptionSchema);

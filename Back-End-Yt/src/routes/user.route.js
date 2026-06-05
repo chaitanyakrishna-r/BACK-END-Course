@@ -1,5 +1,13 @@
 import express from "express";
-import { loginUser, logoutUser, registerUser,regenerateAccessToken } from "../controllers/user.controller.js";
+import {
+  loginUser,
+  logoutUser,
+  registerUser,
+  regenerateAccessToken,
+  changeCurrentPassword,
+  getChannelProfile,
+  createSub,
+} from "../controllers/user.controller.js";
 import { upload } from "../middlewares/multer.middleware.js";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
 const router = express.Router();
@@ -18,13 +26,26 @@ router.route("/register").post(
   registerUser
 );
 
-router.route("/login").post(
-  loginUser
-)
+router.route("/login").post(loginUser);
 
-router.post("/logout",verifyJWT,logoutUser)
+router.post("/logout", verifyJWT, logoutUser);
 
 router.post("/refresh-token", regenerateAccessToken);
 
-export default router;
+router.route("/changeCurrentPassword").post(verifyJWT, changeCurrentPassword);
 
+router.route("/updateUserAvatar").post(upload.fields([
+  {
+    name:"avatar",
+    maxCount:1,
+  },{
+    name: "coverImage",
+    maxCount:1,
+  }
+]))
+
+router.route('/subscribe').post(createSub)
+
+router.route('/getChannelProfile/:username').get(getChannelProfile);
+
+export default router;
